@@ -1,4 +1,10 @@
-import type { Theme, ThemeColorConfig, ThemeConfig, ThemeTypographyConfig } from './types';
+import type {
+  Theme,
+  ThemeColorConfig,
+  ThemeConfig,
+  ThemeType,
+  ThemeTypographyConfig,
+} from './types';
 
 const color: ThemeColorConfig = {
   primary: '#0247fe',
@@ -97,36 +103,37 @@ const typography: ThemeTypographyConfig = {
 
 // Default Theme Options is in fact a safeguard for a solid theme config
 // and has that type to ensure all properties are set
-export const defaultThemeOptions: ThemeConfig<{}> = {
-  type: 'light',
-  wcag: 'AA',
-  color,
-  background: {
-    surface: '#ffffff',
-    body: '#ffffff',
-  },
-  gutter: 8,
-  typography,
-  named: {},
-};
+export type DefaultThemeOptions<T = {}> = Record<ThemeType, ThemeConfig<T>>;
 
-export const defaultThemeOptionsLight = defaultThemeOptions;
-
-export const defaultThemeOptionsDark: ThemeConfig<{}> = {
-  type: 'dark',
-  wcag: 'AA',
-  color,
-  background: {
-    body: '#1c1c1f',
-    surface: '#252529',
+export const defaultThemeOptions: DefaultThemeOptions = {
+  light: {
+    type: 'light',
+    wcag: 'AA',
+    color,
+    background: {
+      surface: '#ffffff',
+      body: '#ffffff',
+    },
+    gutter: 8,
+    typography,
+    named: {},
   },
-  gutter: 8,
-  typography: {
-    ...typography,
-    textColor: 'rgba(255,255,255,255.82)',
-    textInverseColor: '#304857',
+  dark: {
+    type: 'dark',
+    wcag: 'AA',
+    color,
+    background: {
+      body: '#1c1c1f',
+      surface: '#252529',
+    },
+    gutter: 8,
+    typography: {
+      ...typography,
+      textColor: 'rgba(255,255,255,255.82)',
+      textInverseColor: '#304857',
+    },
+    named: {},
   },
-  named: {},
 };
 
 export const dummyTheme: Theme<{}> = {

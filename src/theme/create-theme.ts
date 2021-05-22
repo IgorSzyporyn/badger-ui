@@ -10,7 +10,7 @@ export function createTheme<T = Record<string, string>>(
   { type = 'light', ...options }: ThemeOptions<T>,
   customThemeValues: Record<string, any> = {}
 ) {
-  const config: ThemeConfig<T> = merge({ ...defaultThemeOptions }, options);
+  const config: ThemeConfig<T> = merge({ ...defaultThemeOptions[type] }, options);
   const theme = { ...dummyTheme, type, wcag: config.wcag };
   const themeType = config.type;
   const wcag = config.wcag;
@@ -221,4 +221,4 @@ export function createTheme<T = Record<string, string>>(
   return merge(theme, customThemeValues) as Theme<T>;
 }
 
-export const defaultTheme = createTheme(defaultThemeOptions);
+export const defaultTheme = createTheme(defaultThemeOptions.light);
