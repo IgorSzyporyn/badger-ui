@@ -1,6 +1,6 @@
-### 0.11.0 (2021-05-18)
+### 0.12.0 (2021-05-22)
 
 ##### Bug Fixes
 
-*  forgot cross-env dependency ([22d5fc6f](https://github.com/IgorSzyporyn/badger-ui/commit/22d5fc6fed58ab73905abd02fd35c656fcb0d962))
+*  default support for dark mode ([18ef5c2a](https://github.com/IgorSzyporyn/badger-ui/commit/18ef5c2a87135cd9e8264bf1250df2b472b89f8a))
 
