@@ -1,6 +1,6 @@
-#### 0.12.1 (2021-05-23)
+#### 0.12.2 (2021-05-23)
 
 ##### Bug Fixes
 
-*  adding named color options to color prop on theme ([d4a29053](https://github.com/IgorSzyporyn/badger-ui/commit/d4a290534940ccf1b5efcf0fa365a804ee5f8fa8))
+*  updated packages ([75510607](https://github.com/IgorSzyporyn/badger-ui/commit/75510607d5670d4aaf8bda02d2ca04e5a25aaf2d))
 
