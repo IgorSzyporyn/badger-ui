@@ -4,7 +4,7 @@ import type {
   ThemeConfig,
   ThemeType,
   ThemeTypographyConfig,
-} from './types';
+} from './types'
 
 const color: ThemeColorConfig = {
   primary: '#0247fe',
@@ -14,7 +14,7 @@ const color: ThemeColorConfig = {
   call2action: '#fd5307',
   grey: '#d0d6d6',
   border: '#d0d6d6',
-};
+}
 
 const typography: ThemeTypographyConfig = {
   fontFamily: 'Roboto',
@@ -99,11 +99,11 @@ const typography: ThemeTypographyConfig = {
     letterSpacing: '0.08333em',
     textTransform: 'uppercase',
   },
-};
+}
 
 // Default Theme Options is in fact a safeguard for a solid theme config
 // and has that type to ensure all properties are set
-export type DefaultThemeOptions<T = {}> = Record<ThemeType, ThemeConfig<T>>;
+export type DefaultThemeOptions<T = {}> = Record<ThemeType, ThemeConfig<T>>
 
 export const defaultThemeOptions: DefaultThemeOptions = {
   light: {
@@ -134,7 +134,7 @@ export const defaultThemeOptions: DefaultThemeOptions = {
     },
     named: {},
   },
-};
+}
 
 export const dummyTheme: Theme<{}> = {
   wcag: 'AA',
@@ -352,5 +352,4 @@ export const dummyTheme: Theme<{}> = {
     overline: {},
   },
   elevations: [],
-  named: {},
-};
+}
