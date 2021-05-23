@@ -1,6 +1,6 @@
-### 0.12.0 (2021-05-22)
+#### 0.12.1 (2021-05-23)
 
 ##### Bug Fixes
 
-*  default support for dark mode ([18ef5c2a](https://github.com/IgorSzyporyn/badger-ui/commit/18ef5c2a87135cd9e8264bf1250df2b472b89f8a))
+*  adding named color options to color prop on theme ([d4a29053](https://github.com/IgorSzyporyn/badger-ui/commit/d4a290534940ccf1b5efcf0fa365a804ee5f8fa8))
 
