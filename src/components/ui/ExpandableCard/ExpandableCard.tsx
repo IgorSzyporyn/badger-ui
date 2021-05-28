@@ -15,7 +15,7 @@ import type { CardProps } from '../Card/Card'
  *
  * Type definition for ExpandableCard component properties
  */
-export type ExpandableCardProps<T extends HTMLElement = HTMLDivElement> = {
+export type ExpandableCardProps = {
   actionArea?: React.ReactNode
   description?: string
   expanded?: boolean
@@ -100,7 +100,7 @@ export function ExpandableCard({
             data-cylindoui-expandablecard-statusicon=""
             expanded={expanded}
             icon="caretRight"
-            size={15}
+            width={15}
             {...StatusIconProps}
           />
         </ControlButton>

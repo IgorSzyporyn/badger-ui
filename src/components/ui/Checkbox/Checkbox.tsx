@@ -83,7 +83,7 @@ export const Checkbox = ({
           data-cylindoui-checkbox-icon=""
           color="white"
           icon="checkmark"
-          size={18}
+          width={18}
           {...IconProps}
         />
         {busy && (

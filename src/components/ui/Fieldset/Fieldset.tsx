@@ -45,7 +45,7 @@ export const Fieldset = ({
             <Icon
               data-cylindoui-fieldset-tooltipicon=""
               icon="questionmark"
-              size={16}
+              width={16}
               {...TooltipIconProps}
             />
           </Tooltip>
