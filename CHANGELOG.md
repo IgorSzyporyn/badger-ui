@@ -1,6 +1,6 @@
-#### 0.12.3 (2021-05-28)
+#### 0.12.4 (2021-05-28)
 
 ##### Bug Fixes
 
-*  more stories ([1a166d31](https://github.com/IgorSzyporyn/badger-ui/commit/1a166d311afa5436b4e6823ce1c6aded44aaec53))
+*  for icon size is now an enum ([4ca79bb1](https://github.com/IgorSzyporyn/badger-ui/commit/4ca79bb1edec41283dbd75cdc628623765573727))
 
