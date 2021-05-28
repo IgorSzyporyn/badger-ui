@@ -1,6 +1,6 @@
-#### 0.12.2 (2021-05-23)
+#### 0.12.3 (2021-05-28)
 
 ##### Bug Fixes
 
-*  updated packages ([75510607](https://github.com/IgorSzyporyn/badger-ui/commit/75510607d5670d4aaf8bda02d2ca04e5a25aaf2d))
+*  more stories ([1a166d31](https://github.com/IgorSzyporyn/badger-ui/commit/1a166d311afa5436b4e6823ce1c6aded44aaec53))
 
