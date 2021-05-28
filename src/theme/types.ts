@@ -5,7 +5,7 @@ export type ThemeWCAGRatingType = 'AA' | 'AAA'
 /**
  * THEME UTILITY "THEMECOLORSCALE" TYPE
  */
-export type ThemeColorScale = {
+export type ColorScale = {
   lightest: string
   lighter: string
   light: string
@@ -14,19 +14,20 @@ export type ThemeColorScale = {
   darker: string
   darkest: string
   dimmed: string
-  muted: string
 }
 
-export type ThemeTypographyScale = {
-  textColor: string
-  textColorDimmed: string
-  textColorMuted: string
-  textInverseColor: string
-  textInverseColorDimmed: string
-  textInverseColorMuted: string
+export type ColorScaleType = keyof ColorScale
+
+export type TypographyScale = {
+  text: string
+  textDimmed: string
+  textInverse: string
+  textInverseDimmed: string
 }
 
-export type ThemeColorScaleType = keyof ThemeColorScale
+export type TypographyScaleType = keyof ColorScale
+
+export type ThemeColorScale = ColorScale & TypographyScale
 
 /**
  * ### [TS] Cylindo-UI Theme Color Keys
@@ -41,7 +42,7 @@ export type ThemeColorType =
   | 'border'
   | 'grey'
 
-export type ThemeColor = Record<ThemeColorType, ThemeColorScale & ThemeTypographyScale>
+export type ThemeColor = Record<ThemeColorType, ThemeColorScale>
 
 export type ThemeColorConfig = Record<ThemeColorType, string>
 export type ThemeColorOptions = Partial<ThemeColorConfig>
@@ -54,8 +55,8 @@ export type ThemeContextType = ThemeColorType | 'border' | 'grey'
  * THEME "BACKGROUND" PROPERTY TYPES
  */
 export type ThemeBackground = {
-  surface: ThemeColorScale & ThemeTypographyScale
-  body: ThemeColorScale & ThemeTypographyScale
+  surface: ThemeColorScale
+  body: ThemeColorScale
 }
 
 export type ThemeBackgroundOptions = {
@@ -88,7 +89,7 @@ export interface ThemeAdorment {
 
 export type ThemeAdormentType = keyof ThemeAdorment
 
-export type ThemeVariant = 'flat' | 'outlined' | 'filled'
+export type ThemeVariant = 'flat' | 'outlined' | 'filled' | 'muted'
 
 /**
  * THEME "TYPOGRAPHY" PROPERTY TYPES
@@ -99,10 +100,8 @@ export type ThemeTypography = {
   fontFamily: string
   textColor: string
   textColorDimmed: string
-  textColorMuted: string
   textInverseColor: string
   textInverseColorDimmed: string
-  textInverseColorMuted: string
   heading1: CSSProperties
   heading2: CSSProperties
   heading3: CSSProperties
@@ -125,10 +124,8 @@ export type ThemeTypographyOptions = {
   fontFamily?: string
   textColor?: string
   textColorDimmed?: string
-  textColorMuted?: string
   textInverseColor?: string
   textInverseColorDimmed?: string
-  textInverseColorMuted?: string
   heading1?: CSSProperties
   heading2?: CSSProperties
   heading3?: CSSProperties
@@ -149,10 +146,8 @@ export type ThemeTypographyConfig = {
   fontFamily: string
   textColor?: string
   textColorDimmed?: string
-  textColorMuted?: string
   textInverseColor?: string
   textInverseColorDimmed?: string
-  textInverseColorMuted?: string
   heading1: CSSProperties
   heading2: CSSProperties
   heading3: CSSProperties
@@ -187,7 +182,6 @@ export type ThemeSizeMap = Record<ThemeSizeType, number>
 export type ThemeSize = {
   icon: ThemeSizeMap
   font: ThemeSizeMap
-  padding: ThemeSizeMap
 }
 
 export type ThemeNamedOptions = Record<string, string>
@@ -198,7 +192,7 @@ export type ThemeNamedOptions = Record<string, string>
 export interface Theme<T = Record<string, string>> {
   wcag: ThemeWCAGRatingType
   type: ThemeType
-  color: ThemeColor & Record<keyof T, ThemeColorScale & ThemeTypographyScale>
+  color: ThemeColor & Record<keyof T, ThemeColorScale>
   background: ThemeBackground
   metrics: ThemeMetrics
   typography: ThemeTypography

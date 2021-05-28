@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> can match snapshot for a shallow render 1`] = `
+<div>
+  <div
+    class="styled__BaseButton-bhq7k-0 styled__FilledButton-bhq7k-1 IbMUB hcxkLz"
+    data-cylindoui-button=""
+    data-cylindoui-type="primary"
+    data-cylindoui-variant="filled"
+    id="g23ep9fpHI4GO3cz-0Cdb"
+    role="button"
+    type="primary"
+  >
+    <div
+      class="styled__ButtonInner-bhq7k-5 cDIKif"
+      data-cylindoui-button-inner=""
+    >
+      <div
+        class="styled__Label-bhq7k-7 jiWxsY"
+        data-cylindoui-button-label=""
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,5 +1,5 @@
-import { createGlobalStyle, css } from 'styled-components';
-import { createTypographyGlobals } from '../theme/create-typography-globals';
+import { createGlobalStyle, css } from 'styled-components'
+import { createTypographyGlobals } from '../../../theme/create-typography-globals'
 
 export const GlobalStyles = createGlobalStyle`
   html,
@@ -149,4 +149,4 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   `}
-`;
+`
