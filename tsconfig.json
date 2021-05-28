@@ -29,6 +29,8 @@
     "**/node_modules",
     "**/*.spec.ts",
     "**/__tests__",
+    "**/*.stories.*",
+    ".jest-test-results.json"
   ],
   "include": ["**/*.ts", "**/*.tsx", "**/*.js"]
 }

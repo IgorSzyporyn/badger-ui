@@ -1,8 +1,7 @@
 import React from 'react'
 import { Tag } from './Tag'
 
-import type { Story } from '@storybook/react'
-import type { Meta } from 'storybook-facelift'
+import type { Story, Meta } from '@storybook/react'
 import type { TagProps } from './Tag'
 
 export default {
