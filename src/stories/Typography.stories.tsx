@@ -9,6 +9,10 @@ export default {
     previewTabs: {
       'storybook/docs/panel': { hidden: true },
     },
+    status: {
+      type: 'releaseCandidate',
+      url: 'https://www.figma.com/file/yl44JcFlLYJ1IHwE6JzbUl/Level-2.-Rollout?node-id=601%3A1018',
+    },
   },
 } as Meta
 

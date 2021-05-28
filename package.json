@@ -117,7 +117,7 @@
     "prettier": "2.3.0",
     "rimraf": "3.0.2",
     "storybook-addon-designs": "^6.0.0",
-    "storybook-facelift": "^6.8.6",
+    "storybook-addon-performance": "^0.15.2",
     "styled-components": "^5.3.0",
     "typescript": "3.9.6"
   },

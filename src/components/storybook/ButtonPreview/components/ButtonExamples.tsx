@@ -79,6 +79,9 @@ const TitleWrapper = styled.h4`
 `
 
 const VariantRow = styled.div`
+  display: flex;
+  align-items: flex-end;
+
   & > [data-cylindoui-button] {
     margin-right: 16px;
 

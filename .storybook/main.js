@@ -7,5 +7,7 @@ module.exports = {
     '@storybook/addon-jest',
     'storybook-facelift',
     '@etchteam/storybook-addon-status',
+    'storybook-addon-performance',
+    'storybook-addon-designs',
   ],
 }

@@ -1,8 +1,5 @@
 import { createTheme } from '../src/theme/create-theme'
 
-import type { Parameters } from 'storybook-facelift'
-import { ThemeInstanciated } from 'storybook-facelift/dist/typings/typings/internal/common'
-
 const light = createTheme({ type: 'light' })
 const dark = createTheme({ type: 'dark' })
 
@@ -13,6 +10,9 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  status: {
+    type: 'beta',
   },
   facelift: {
     enhanceUi: true,
@@ -37,7 +37,7 @@ export const parameters = {
           appBg: theme.background.body,
           appContentBg: theme.background.surface,
         },
-        instanciated: theme as ThemeInstanciated,
+        instanciated: theme as any,
         options: theme,
       }),
     },
@@ -49,6 +49,18 @@ export const parameters = {
         converter: 'custom',
         providerOnly: true,
         variants: { light, dark },
+      },
+      {
+        type: 'badgerui',
+        key: 'custom-1',
+        title: 'Badger UI theme',
+        variants: { light, dark },
+      },
+      {
+        type: 'mui',
+        key: 'mui-2',
+        title: 'Material UI',
+        variants: { light: {}, dark: {} },
       },
     ],
   },

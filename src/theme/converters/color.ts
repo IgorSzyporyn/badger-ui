@@ -18,7 +18,7 @@ export const rgbColorParamToString = ({ color, valpha = 1 }: any) => {
   return `rgba(${rgbString},${valpha})`
 }
 
-export const dimColor = (_color: string, amount: number = 0.36) => {
+export const dimColor = (_color: string, amount = 0.36) => {
   const color = Color(_color)
   return rgbColorParamToString(color.alpha(amount))
 }

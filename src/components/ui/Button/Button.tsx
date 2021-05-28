@@ -50,7 +50,6 @@ export const Button = React.forwardRef(
     {
       adornment = {},
       elevation = 0,
-      busy = false,
       children,
       disabled = false,
       fullWidth = false,
