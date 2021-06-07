@@ -1,7 +1,6 @@
-#### 0.12.7 (2021-06-07)
+#### 0.12.8 (2021-06-07)
 
 ##### Bug Fixes
 
-*  converting to REM and checking typography font usage ([053af853](https://github.com/IgorSzyporyn/badger-ui/commit/053af853ab8413b548b4eabf60c25a298ab53b98))
-*  started REM rewrite ([16681887](https://github.com/IgorSzyporyn/badger-ui/commit/16681887b07ea0c49fcf1cacb3689c5b89c18548))
+*  finding error ([680a6682](https://github.com/IgorSzyporyn/badger-ui/commit/680a66822cc57a467ebf2e823d7333a613f8d785))
 
