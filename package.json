@@ -120,6 +120,7 @@
     "rimraf": "3.0.2",
     "storybook-addon-designs": "^6.0.0",
     "storybook-addon-performance": "^0.15.2",
+    "storybook-facelift": "../storybook-facelift",
     "styled-components": "^5.3.0",
     "typescript": "3.9.6"
   },

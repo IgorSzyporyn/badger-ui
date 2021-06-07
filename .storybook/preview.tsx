@@ -28,14 +28,11 @@ export const parameters: Parameters = {
       date: /Date$/,
     },
   },
-  status: {
-    type: 'beta',
-  },
   facelift: {
     enhanceUi: true,
     addProvider: true,
     provider: 'styled',
-    providerTheme: 'custom',
+    providerTheme: 'custom-1',
     defaultVariant: 'dark',
     override: {
       brandImage:
@@ -49,26 +46,7 @@ export const parameters: Parameters = {
       hideControls: true,
       type: 'simple',
     },
-    themeConverters: {
-      custom: ({ theme, variant }) => ({
-        storybook: {
-          base: variant,
-          appBg: theme.background.body,
-          appContentBg: theme.background.surface,
-        },
-        instanciated: theme as any,
-        options: theme,
-      }),
-    },
     themes: [
-      {
-        type: 'custom',
-        key: 'custom',
-        title: 'Badger UI provider',
-        converter: 'custom',
-        providerOnly: true,
-        variants: { light, dark },
-      },
       {
         type: 'badgerui',
         key: 'custom-1',

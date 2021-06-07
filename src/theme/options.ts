@@ -17,7 +17,7 @@ const color: ThemeColorConfig = {
 }
 
 const typography: ThemeTypographyConfig = {
-  fontFamily: 'Roboto',
+  fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
   fontSize: 14,
   heading1: {
     fontSize: '6rem',

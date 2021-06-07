@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { nanoid } from 'nanoid'
 import styled from 'styled-components'
 
 import type {
@@ -36,6 +37,8 @@ export const ColorScalePreview = ({
   title,
   ...rest
 }: ColorScalePreviewProps) => {
+  const idRef = useRef(nanoid())
+
   return (
     <ColorWrapper {...rest}>
       <ColorTypeTitle>{title}</ColorTypeTitle>
@@ -50,10 +53,11 @@ export const ColorScalePreview = ({
               <ColorItem key={`${scaleIndex}`}>
                 <ColorBox color={colorScale[scaleKey]}>
                   <ColorTypographyWrapper>
-                    {typographyColors.map((_typographyKey) => {
+                    {typographyColors.map((_typographyKey, index) => {
                       const typographyKey = _typographyKey as TypographyScaleType
+                      const key = `${idRef.current}-${index}`
                       return (
-                        <ColorTypography color={colorScale[typographyKey]}>
+                        <ColorTypography key={key} color={colorScale[typographyKey]}>
                           <ColorTypographyTitle>{typographyKey}</ColorTypographyTitle>
                         </ColorTypography>
                       )

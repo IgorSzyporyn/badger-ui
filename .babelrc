@@ -3,6 +3,7 @@
   "plugins": [
     "transform-class-properties",
     "syntax-class-properties",
+    ["@babel/plugin-proposal-private-property-in-object", { "loose": true }],
     "babel-plugin-styled-components"
   ]
 }

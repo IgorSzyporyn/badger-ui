@@ -1,10 +1,11 @@
 import React from 'react'
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
-import { Story, Meta } from '@storybook/react/types-6-0'
-import Badge, { BadgeProps } from './Badge'
+import { Badge } from './Badge'
+
+import type { Story, Meta } from '@storybook/react'
+import type { BadgeProps } from './Badge'
 
 export default {
-  title: 'Badge',
+  title: 'UI Components/Badge',
   component: Badge,
   decorators: [],
   parameters: [],
