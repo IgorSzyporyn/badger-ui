@@ -1,7 +1,7 @@
 {
   "name": "badger-ui",
   "description": "Theming framework for JSS based applications",
-  "version": "0.12.7",
+  "version": "0.12.8",
   "license": "MIT",
   "keywords": [
     "theming",
