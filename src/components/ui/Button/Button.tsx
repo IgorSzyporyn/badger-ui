@@ -76,6 +76,7 @@ export const Button = React.forwardRef(
         data-badgerui-button=""
         data-badgerui-variant={variant}
         data-badgerui-type={type}
+        role="button"
         id={id}
         type={type}
         disabled={disabled}
@@ -83,11 +84,10 @@ export const Button = React.forwardRef(
         _elevation={elevation}
         fullWidth={fullWidth}
         size={size}
-        role="button"
         {...rest}
         ref={ref}
       >
-        <ButtonInner data-badgerui-button-inner="" size={size}>
+        <ButtonInner data-badgerui-button-inner="">
           {icon && iconPosition === 'start' && (
             <Adornment
               data-badgerui-button-adornment=""

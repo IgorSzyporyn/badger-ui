@@ -19,6 +19,6 @@ export function RootWrapper<T extends HTMLDivElement = HTMLDivElement>({
 const Wrapper = styled.div`
   ${({ theme }) => css`
     font-family: ${theme && theme.typography && theme.typography.fontFamily};
-    color: 'red';
+    color: red;
   `}
 `

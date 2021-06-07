@@ -51,7 +51,8 @@ export const parameters: Parameters = {
         type: 'badgerui',
         key: 'custom-1',
         title: 'Badger UI theme',
-        variants: { light: { type: 'light' }, dark: { type: 'dark' } },
+        provider: 'styled',
+        variants: { light, dark },
       },
       {
         type: 'mui',

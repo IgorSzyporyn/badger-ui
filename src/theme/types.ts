@@ -177,13 +177,6 @@ export type ThemeType = 'light' | 'dark'
  */
 export type ThemeSizeType = 'small' | 'medium' | 'normal' | 'large' | 'xlarge'
 
-export type ThemeSizeMap = Record<ThemeSizeType, string>
-
-export type ThemeSize = {
-  icon: ThemeSizeMap
-  font: ThemeSizeMap
-}
-
 export type ThemeNamedOptions = Record<string, string>
 
 /**
@@ -197,7 +190,6 @@ export interface Theme<T = Record<string, string>> {
   metrics: ThemeMetrics
   typography: ThemeTypography
   elevations: ThemeElevations
-  size: ThemeSize
 }
 
 export interface ThemeOptions<T = Record<string, string>> {

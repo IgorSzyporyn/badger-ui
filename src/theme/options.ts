@@ -103,7 +103,10 @@ const typography: ThemeTypographyConfig = {
 
 // Default Theme Options is in fact a safeguard for a solid theme config
 // and has that type to ensure all properties are set
-export type DefaultThemeOptions<T = {}> = Record<ThemeType, ThemeConfig<T>>
+export type DefaultThemeOptions<T = Record<string, never>> = Record<
+  ThemeType,
+  ThemeConfig<T>
+>
 
 export const defaultThemeOptions: DefaultThemeOptions = {
   light: {
@@ -136,7 +139,7 @@ export const defaultThemeOptions: DefaultThemeOptions = {
   },
 }
 
-export const dummyTheme: Theme<{}> = {
+export const dummyTheme: Theme<Record<string, never>> = {
   wcag: 'AA',
   type: 'light',
   color: {
@@ -278,25 +281,9 @@ export const dummyTheme: Theme<{}> = {
     spacingCollapsed: '',
     borderRadius: '',
   },
-  size: {
-    font: {
-      small: 0,
-      medium: 0,
-      normal: 0,
-      large: 0,
-      xlarge: 0,
-    },
-    icon: {
-      small: 0,
-      medium: 0,
-      normal: 0,
-      large: 0,
-      xlarge: 0,
-    },
-  },
   typography: {
     fontFamily: '',
-    fontSize: '',
+    fontSize: 0,
     textColor: '',
     textColorDimmed: '',
     textInverseColor: '',
