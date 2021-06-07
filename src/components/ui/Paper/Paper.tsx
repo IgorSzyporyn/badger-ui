@@ -3,37 +3,39 @@ import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
 import { isEmpty } from 'lodash'
 
+import type { HTMLAttributes } from 'react'
 import type { HTMLMotionProps } from 'framer-motion'
 import type { ThemeElevationType } from '../../../theme/types'
 
 /**
- * ### Cylindo-UI: Card
+ * ### Facelift-UI: Paper
  *
- * Type definition for Card component properties
+ * Type definition for Paper component properties
  */
-export type CardProps = {
+export type PaperProps = {
   elevation?: ThemeElevationType
-} & HTMLMotionProps<'div'> &
-  React.HTMLAttributes<HTMLDivElement>
+} & HTMLAttributes<HTMLDivElement> &
+  HTMLMotionProps<'div'>
 
 /**
- * ### cylindo-ui: Card
- * Minimalistic box component with optional rounded borders & elevation
- * - Takes a generic type for typesafety if "as" property is used
- * - Uses theme background.paper for background color
+ * ## Facelift UI - Paper
+ *
+ * Minimalistic paper component with optional rounded borders & elevation
+ *
+ * - Uses **theme.background.paper** for background color
+ * - Will accept any framer motion props and can be animated
  */
-
-export const Card = React.forwardRef(
-  ({ children, elevation = 0, ...rest }: CardProps, ref: React.Ref<HTMLDivElement>) => {
+export const Paper = React.forwardRef(
+  ({ children, elevation = 0, ...rest }: PaperProps, ref: React.Ref<HTMLDivElement>) => {
     return (
-      <Wrapper data-cylindoui-card="" elevation={elevation} {...rest} ref={ref}>
+      <Wrapper data-badgerui-paper="" elevation={elevation} {...rest} ref={ref}>
         {children}
       </Wrapper>
     )
   }
 )
 
-type WrapperProps = {
+type WrapperProps = HTMLMotionProps<'div'> & {
   elevation: ThemeElevationType
 }
 

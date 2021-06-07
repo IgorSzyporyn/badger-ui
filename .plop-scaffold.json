@@ -1,0 +1,35 @@
+{
+  "react": {
+    "baseDir": "src",
+    "componentDir": "components/ui",
+    "pageDir": "pages",
+    "containerDir": "containers",
+    "testDir": null,
+    "storybookDir": null,
+    "cssinjs": null,
+    "examples": null,
+    "storybook": null,
+    "test": null,
+    "type": null,
+    "typescript": null,
+    "useeffect": null,
+    "usestate": null
+  },
+  "project-cli": {
+    "name": null,
+    "description": null,
+    "typescript": null,
+    "commitlint": null,
+    "liftoff": null,
+    "author": null,
+    "authoremail": null
+  },
+  "react-next-page": {
+    "baseDir": "src",
+    "typescript": null,
+    "usestate": null,
+    "useeffect": null,
+    "styled": null,
+    "emotion": null
+  }
+}

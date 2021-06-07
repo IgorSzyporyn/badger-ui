@@ -82,7 +82,7 @@ const VariantRow = styled.div`
   display: flex;
   align-items: flex-end;
 
-  & > [data-cylindoui-button] {
+  & > [data-badgerui-button] {
     margin-right: 16px;
 
     &:last-child {

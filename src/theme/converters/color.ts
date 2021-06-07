@@ -47,7 +47,7 @@ const convertColorScaleTypeColor = ({
         dark: rgbColorParamToString(color.desaturate(0.08).darken(0.26).rgb()),
         darker: rgbColorParamToString(color.desaturate(0.08).darken(0.44).rgb()),
         darkest: rgbColorParamToString(color.desaturate(0.08).darken(0.57).rgb()),
-        dimmed: rgbColorParamToString(color.alpha(0.6)),
+        dimmed: rgbColorParamToString(color.alpha(0.3).rgb()),
       }
     : {
         lightest: rgbColorParamToString(color.lighten(0.68).rgb()),
@@ -57,7 +57,7 @@ const convertColorScaleTypeColor = ({
         dark: rgbColorParamToString(color.darken(0.26).rgb()),
         darker: rgbColorParamToString(color.darken(0.44).rgb()),
         darkest: rgbColorParamToString(color.darken(0.57).rgb()),
-        dimmed: rgbColorParamToString(color.alpha(0.6).rgb()),
+        dimmed: rgbColorParamToString(color.alpha(0.3).rgb()),
       }
 }
 

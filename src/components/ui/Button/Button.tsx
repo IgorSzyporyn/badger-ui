@@ -73,9 +73,9 @@ export const Button = React.forwardRef(
 
     return (
       <ButtonVariant
-        data-cylindoui-button=""
-        data-cylindoui-variant={variant}
-        data-cylindoui-type={type}
+        data-badgerui-button=""
+        data-badgerui-variant={variant}
+        data-badgerui-type={type}
         id={id}
         type={type}
         disabled={disabled}
@@ -87,37 +87,32 @@ export const Button = React.forwardRef(
         {...rest}
         ref={ref}
       >
-        <ButtonInner data-cylindoui-button-inner="" size={size}>
+        <ButtonInner data-badgerui-button-inner="" size={size}>
           {icon && iconPosition === 'start' && (
             <Adornment
-              data-cylindoui-button-adornment=""
-              data-cylindoui-button-adornment-start=""
+              data-badgerui-button-adornment=""
+              data-badgerui-button-adornment-start=""
               {...AdornmentProps}
             >
-              <Icon
-                data-cylindoui-button-icon=""
-                icon={icon}
-                size={size}
-                {...IconProps}
-              />
+              <Icon data-badgerui-button-icon="" icon={icon} size={size} {...IconProps} />
             </Adornment>
           )}
           {adornment.start !== undefined && (
             <Adornment
-              data-cylindoui-button-adornment=""
-              data-cylindoui-button-adornment-start=""
+              data-badgerui-button-adornment=""
+              data-badgerui-button-adornment-start=""
               {...AdornmentProps}
             >
               {adornment.start}
             </Adornment>
           )}
-          <Label data-cylindoui-button-label="" {...LabelProps}>
+          <Label data-badgerui-button-label="" {...LabelProps}>
             {label ? label : children}
           </Label>
           {adornment.end !== undefined && (
             <Adornment
-              data-cylindoui-button-adornment=""
-              data-cylindoui-button-adornment-end=""
+              data-badgerui-button-adornment=""
+              data-badgerui-button-adornment-end=""
               {...AdornmentProps}
             >
               {adornment.end}
@@ -125,16 +120,11 @@ export const Button = React.forwardRef(
           )}
           {icon && iconPosition === 'end' && (
             <Adornment
-              data-cylindoui-button-adornment=""
-              data-cylindoui-button-adornment-end=""
+              data-badgerui-button-adornment=""
+              data-badgerui-button-adornment-end=""
               {...AdornmentProps}
             >
-              <Icon
-                data-cylindoui-button-icon=""
-                icon={icon}
-                size={size}
-                {...IconProps}
-              />
+              <Icon data-badgerui-button-icon="" icon={icon} size={size} {...IconProps} />
             </Adornment>
           )}
         </ButtonInner>

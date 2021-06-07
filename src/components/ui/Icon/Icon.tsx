@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css, useTheme } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
 import { isEmpty } from 'lodash'
 
@@ -15,8 +15,8 @@ export type IconProps = {
   fill?: string
   icon?: IconType
   size?: ThemeSizeType
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
   type?: ThemeColorType
   SvgProps?: React.HTMLAttributes<SVGSVGElement>
 } & HTMLMotionProps<'i'> &
@@ -28,39 +28,44 @@ export type IconProps = {
  * Base Icon component for Cylindo-UI
  */
 export const Icon = React.forwardRef((props: IconProps, ref: React.Ref<HTMLElement>) => {
-  const theme = useTheme()
-
   const {
-    animateFill,
     fill,
     icon = 'questionmark',
-    size,
-    width,
-    height,
+    width: _width,
+    height: _height,
     type,
     SvgProps = {},
     ...rest
   } = props
 
-  let _width = width
-  let _height = height || _width
+  let width = _width != null ? _width : undefined
+  let height = _height != null ? _height : undefined
 
-  // Size takes predecence over width & height - width is shorthand for both
-  if (theme && theme.size && size) {
-    _width = theme.size.icon[size]
-    _height = _width
+  if (typeof width === 'number') {
+    width = String(width)
+  }
+
+  if (typeof height === 'number') {
+    height = String(height)
+  }
+
+  if (width == null) {
+    width = '100%'
+  }
+
+  if (height == null) {
+    height = '100%'
   }
 
   return (
-    <Wrapper aria-label={icon} data-cylindoui-icon="" role="img" {...rest} ref={ref}>
+    <Wrapper aria-label={icon} data-badgerui-icon="" role="img" {...rest} ref={ref}>
       <Svg
-        data-cylindoui-icon-svg=""
-        animateFill={animateFill}
-        fill={fill}
-        height={_height}
+        data-badgerui-icon-svg=""
         type={type}
+        fill={fill}
+        height={height}
+        width={width}
         viewBox="0 0 24 24"
-        width={_width}
         {...SvgProps}
       >
         {icons[icon]}
@@ -90,11 +95,5 @@ const Svg = styled.svg<SvgProps>`
         : type !== undefined
         ? theme.color[type].normal
         : 'currentColor'};
-    `}
-
-  ${({ animateFill }) =>
-    animateFill &&
-    css`
-      transition: fill 125ms ease-in-out;
     `}
 `

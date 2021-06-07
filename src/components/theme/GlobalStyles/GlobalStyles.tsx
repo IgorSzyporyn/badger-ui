@@ -135,18 +135,21 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  ${({ theme }) => css`
-    ${createTypographyGlobals(theme)}
+  ${({ theme }) =>
+    theme && theme.typography
+      ? css`
+          ${createTypographyGlobals(theme)}
 
-    a {
-      font-weight: 600;
-      text-decoration: none;
-      color: ${theme.color.primary.darker};
+          a {
+            font-weight: 600;
+            text-decoration: none;
+            color: ${theme.color.primary.darker};
 
-      &:visited {
-        font-weight: 600;
-        color: ${theme.color.primary.darker};
-      }
-    }
-  `}
+            &:visited {
+              font-weight: 600;
+              color: ${theme.color.primary.darker};
+            }
+          }
+        `
+      : null}
 `

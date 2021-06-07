@@ -96,7 +96,7 @@ export type ThemeVariant = 'flat' | 'outlined' | 'filled' | 'muted'
  */
 
 export type ThemeTypography = {
-  fontSize: string
+  fontSize: number
   fontFamily: string
   textColor: string
   textColorDimmed: string
@@ -177,7 +177,7 @@ export type ThemeType = 'light' | 'dark'
  */
 export type ThemeSizeType = 'small' | 'medium' | 'normal' | 'large' | 'xlarge'
 
-export type ThemeSizeMap = Record<ThemeSizeType, number>
+export type ThemeSizeMap = Record<ThemeSizeType, string>
 
 export type ThemeSize = {
   icon: ThemeSizeMap

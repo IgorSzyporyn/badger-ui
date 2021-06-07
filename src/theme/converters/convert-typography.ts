@@ -24,7 +24,7 @@ export function convertTypography({
 
   return {
     fontFamily,
-    fontSize: `${fontSize}px`,
+    fontSize,
     textColor: textColor
       ? textColor
       : getContrastColor({

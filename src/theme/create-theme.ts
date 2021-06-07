@@ -20,7 +20,7 @@ export function createTheme<T = ThemeNamedOptions>(
   theme.background = convertBackground({ theme, config })
   theme.metrics = convertMetrics(config)
   theme.typography = convertTypography({ config, background: theme.background })
-  theme.size = convertSize(config)
+  theme.size = convertSize()
   theme.elevations = convertElevations(config)
 
   return merge(theme, customThemeValues) as Theme<T>

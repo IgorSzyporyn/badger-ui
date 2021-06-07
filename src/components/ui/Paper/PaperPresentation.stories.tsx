@@ -1,9 +1,9 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
-import { Card } from './Card'
+import { Paper } from './Paper'
 
 export default {
-  title: 'UI Components/Card/Presentation',
+  title: 'UI Components/Paper/Presentation',
   parameters: {
     layout: 'centered',
     options: {
@@ -19,27 +19,27 @@ export const Presentation: Story = () => (
   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridGap: 32 }}>
     <div>
       <h3>Elevation 0</h3>
-      <Card style={{ width: 200, height: 200 }} elevation={0} />
+      <Paper style={{ width: 200, height: 200 }} elevation={0} />
     </div>
     <div>
       <h3>Elevation 1</h3>
-      <Card style={{ width: 200, height: 200 }} elevation={1} />
+      <Paper style={{ width: 200, height: 200 }} elevation={1} />
     </div>
     <div>
       <h3>Elevation 2</h3>
-      <Card style={{ width: 200, height: 200 }} elevation={2} />
+      <Paper style={{ width: 200, height: 200 }} elevation={2} />
     </div>
     <div>
       <h3>Elevation 3</h3>
-      <Card style={{ width: 200, height: 200 }} elevation={3} />
+      <Paper style={{ width: 200, height: 200 }} elevation={3} />
     </div>
     <div>
       <h3>Elevation 4</h3>
-      <Card style={{ width: 200, height: 200 }} elevation={4} />
+      <Paper style={{ width: 200, height: 200 }} elevation={4} />
     </div>
     <div>
       <h3>Elevation 5</h3>
-      <Card style={{ width: 200, height: 200 }} elevation={5} />
+      <Paper style={{ width: 200, height: 200 }} elevation={5} />
     </div>
   </div>
 )

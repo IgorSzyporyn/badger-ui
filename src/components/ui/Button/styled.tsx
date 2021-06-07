@@ -7,9 +7,6 @@ import type {
   ThemeVariant,
 } from '../../../theme/types'
 
-const heightAdjuster = 2.8
-const paddingAdjuster = 2
-
 type WrapperProps = {
   disabled: boolean
   fullWidth: boolean
@@ -54,9 +51,9 @@ export const OutlinedButton = styled(BaseButton)<WrapperProps>`
 
 export const MutedButton = styled(BaseButton)<WrapperProps>`
   ${({ theme, type }) => css`
-    background-color: ${theme && theme.color ? theme.color[type].darker : ''};
-    border-color: ${theme && theme.color ? theme.color[type].darker : ''};
-    color: ${theme && theme.color ? theme.color[type].lightest : ''};
+    background-color: ${theme && theme.color ? theme.color[type].dimmed : ''};
+    border-color: ${theme && theme.color ? theme.color[type].darkest : ''};
+    color: ${theme && theme.color ? theme.color[type].darkest : ''};
   `}
 `
 
@@ -64,29 +61,16 @@ export const FlatButton = styled(BaseButton)<WrapperProps>`
   color: ${({ theme, type }) => (theme && theme.color ? theme.color[type].normal : '')};
 `
 
-type ButtonInnerProps = {
-  size: ThemeSizeType
-}
-
-export const ButtonInner = styled.div<ButtonInnerProps>`
+export const ButtonInner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  ${({ theme, size }) => {
-    const fontSize = theme && theme.size && theme.size.font[size]
-
-    return css`
-      height: ${Math.round(fontSize * heightAdjuster)}px;
-      padding: 0 ${Math.round(fontSize * paddingAdjuster)}px;
-    `
-  }}
 `
 
 export const Adornment = styled.div`
   display: flex;
 
-  &[data-cylindoui-button-adornment-start] {
+  &[data-badgerui-button-adornment-start] {
     margin-right: 0.5em;
 
     &:last-child {
@@ -94,7 +78,7 @@ export const Adornment = styled.div`
     }
   }
 
-  &[data-cylindoui-button-adornment-end] {
+  &[data-badgerui-button-adornment-end] {
     margin-left: 0.5em;
 
     &:last-child {

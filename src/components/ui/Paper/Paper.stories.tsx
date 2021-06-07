@@ -1,18 +1,18 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Card, CardProps } from './Card'
+import { Paper, PaperProps } from './Paper'
 
 export default {
-  title: 'UI Components/Card',
-  component: Card,
+  title: 'UI Components/Paper',
+  component: Paper,
   parameters: {
     layout: 'centered',
   },
 } as Meta
 
-const Template: Story<CardProps> = (args) => (
-  <Card {...args} style={{ height: 300, width: 300 }} />
+const Template: Story<PaperProps> = (args) => (
+  <Paper {...args} style={{ height: 300, width: 300 }} />
 )
 
 export const Controllable = Template.bind({})

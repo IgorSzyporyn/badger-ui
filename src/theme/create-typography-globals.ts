@@ -1,8 +1,8 @@
-import { CSSProperties } from 'react';
-import { css } from 'styled-components';
-import kebabCase from 'lodash/kebabCase';
+import { CSSProperties } from 'react'
+import { css } from 'styled-components'
+import kebabCase from 'lodash/kebabCase'
 
-import type { Theme, ThemeTypography } from './types';
+import type { Theme, ThemeTypography } from './types'
 
 type TypographyMap = Record<
   keyof Omit<
@@ -17,7 +17,7 @@ type TypographyMap = Record<
     | 'textInverseColorMuted'
   >,
   keyof HTMLElementTagNameMap | null
->;
+>
 
 const typographyMap: TypographyMap = {
   heading1: 'h1',
@@ -33,45 +33,46 @@ const typographyMap: TypographyMap = {
   caption: 'caption',
   button: 'button',
   overline: null,
-};
+}
 
 export const createTypographyGlobals = (theme: Theme) => {
   return css`
     html {
-      font-size: ${theme.typography.fontSize};
+      font-size: 16px;
+      font-size: 62.5%;
     }
 
     body {
+      font-family: ${theme.typography.fontFamily};
+      font-size: ${theme.typography.fontSize * 0.1}rem;
       font-variant-ligatures: none;
+      line-height: ${theme.typography.body1.lineHeight};
+      letter-spacing: ${theme.typography.body1.letterSpacing};
       text-decoration-skip-ink: auto;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
 
       background-color: ${theme.background.body.normal};
       color: ${theme.typography.textColor};
-      font-family: ${theme.typography.fontFamily};
-      font-size: ${theme.typography.body1.fontSize};
-      line-height: ${theme.typography.body1.lineHeight};
-      letter-spacing: ${theme.typography.body1.letterSpacing};
     }
 
     ${Object.keys(typographyMap).map((_key) => {
-      const typographyKey = _key as keyof typeof typographyMap;
-      const isTagMapped = typographyMap[typographyKey] !== null;
-      const themeItem = theme.typography[typographyKey];
+      const typographyKey = _key as keyof typeof typographyMap
+      const isTagMapped = typographyMap[typographyKey] !== null
+      const themeItem = theme.typography[typographyKey]
 
       return isTagMapped
         ? css`
             ${typographyMap[typographyKey]} {
               ${Object.keys(themeItem).map((_rule) => {
-                const rule = _rule as keyof CSSProperties;
+                const rule = _rule as keyof CSSProperties
                 return css`
                   ${kebabCase(rule)}: ${themeItem[rule]};
-                `;
+                `
               })}// Create the tag rules
             }
           `
-        : null;
+        : null
     })}
-  `;
-};
+  `
+}

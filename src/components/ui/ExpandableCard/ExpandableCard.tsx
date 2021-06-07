@@ -3,12 +3,13 @@ import styled, { css } from 'styled-components'
 import { nanoid } from 'nanoid'
 import { isEmpty } from 'lodash'
 
-import { Card } from '../Card/Card'
+import { Paper } from '../Paper/Paper'
 import { Icon } from '../Icon/Icon'
-import { useObserveRect } from '../../../hooks/useObserveRect'
 
 import type { IconProps } from '../Icon/Icon'
-import type { CardProps } from '../Card/Card'
+import type { PaperProps } from '../Paper/Paper'
+import { CollapsibleBox } from '../CollapsibleBox/CollapsibleBox'
+import { HTMLMotionProps } from 'framer-motion'
 
 /**
  * ### Cylindo-UI: ExpandableCard
@@ -20,20 +21,10 @@ export type ExpandableCardProps = {
   description?: string
   expanded?: boolean
   label?: string
-  noPadding?: boolean
   utilityArea?: React.ReactNode
-  InnerBodyProps?: React.HTMLAttributes<HTMLDivElement>
-  ActionAreaProps?: React.HTMLAttributes<HTMLDivElement>
-  BodyInnerProps?: React.HTMLAttributes<HTMLDivElement>
-  BodyProps?: React.HTMLAttributes<HTMLDivElement>
-  ControlButtonProps?: React.HTMLAttributes<HTMLButtonElement>
-  DescriptionProps?: React.HTMLAttributes<HTMLHeadingElement>
-  HeaderProps?: React.HTMLAttributes<HTMLDivElement>
-  LabelProps?: React.HTMLAttributes<HTMLHeadingElement>
+  BodyProps?: React.HTMLAttributes<HTMLDivElement> & HTMLMotionProps<'div'>
   StatusIconProps?: IconProps
-  TitleAreaProps?: React.HTMLAttributes<HTMLDivElement>
-  UtilityAreaProps?: React.HTMLAttributes<HTMLDivElement>
-} & CardProps
+} & PaperProps
 
 /**
  * ### cylindo-ui: ExpandableCard
@@ -48,18 +39,9 @@ export function ExpandableCard({
   description,
   expanded: _expanded = false,
   label,
-  noPadding = false,
   utilityArea,
-  ActionAreaProps = {},
-  InnerBodyProps = {},
   BodyProps = {},
-  ControlButtonProps = {},
-  DescriptionProps = {},
-  HeaderProps = {},
-  LabelProps = {},
   StatusIconProps = {},
-  TitleAreaProps = {},
-  UtilityAreaProps = {},
   ...rest
 }: ExpandableCardProps) {
   const [expanded, setExpanded] = useState(_expanded)
@@ -68,9 +50,6 @@ export function ExpandableCard({
   const labelId = labelRef.current
   const descriptionRef = useRef(nanoid())
   const descriptionId = descriptionRef.current
-
-  const innerBodyRef = useRef<HTMLDivElement>(null)
-  const { height: bodyHeight } = useObserveRect(innerBodyRef)
 
   useEffect(() => {
     setExpanded(_expanded)
@@ -81,90 +60,54 @@ export function ExpandableCard({
       aria-describedby={descriptionId}
       aria-expanded={expanded}
       aria-labelledby={labelId}
-      data-cylindoui-expandablecard=""
-      noPadding={noPadding}
-      expanded={expanded}
+      data-badgerui-expandablecard=""
       {...rest}
     >
-      <Header data-cylindoui-expandablecard-header="" {...HeaderProps}>
+      <Header data-badgerui-expandablecard-header="">
         <ControlButton
-          data-cylindoui-expandablecard-controlbutton=""
+          data-badgerui-expandablecard-controlbutton=""
           expanded={expanded}
-          {...ControlButtonProps}
-          onClick={(event) => {
+          onClick={() => {
             setExpanded(!expanded)
-            ControlButtonProps.onClick && ControlButtonProps.onClick(event)
           }}
         >
           <StatusIcon
-            data-cylindoui-expandablecard-statusicon=""
+            data-badgerui-expandablecard-statusicon=""
             expanded={expanded}
             icon="caretRight"
             width={15}
             {...StatusIconProps}
           />
         </ControlButton>
-        <TitleArea data-cylindoui-expandablecard-titlearea="" {...TitleAreaProps}>
-          <Label data-cylindoui-expandablecard-label="" id={labelId} {...LabelProps}>
+        <TitleArea data-badgerui-expandablecard-titlearea="">
+          <Label data-badgerui-expandablecard-label="" id={labelId}>
             {label}
           </Label>
-          <Description
-            data-cylindoui-expandablecard-description=""
-            id={descriptionId}
-            {...DescriptionProps}
-          >
+          <Description data-badgerui-expandablecard-description="" id={descriptionId}>
             {description}
           </Description>
         </TitleArea>
         {utilityArea !== undefined && (
-          <UtilityArea data-cylindoui-expandablecard-utilityarea="" {...UtilityAreaProps}>
+          <UtilityArea data-badgerui-expandablecard-utilityarea="">
             {utilityArea}
           </UtilityArea>
         )}
       </Header>
       {actionArea !== undefined && (
-        <ActionArea data-cylindoui-expandablecard-actionarea="" {...ActionAreaProps}>
-          {actionArea}
-        </ActionArea>
+        <ActionArea data-badgerui-expandablecard-actionarea="">{actionArea}</ActionArea>
       )}
-      <Body
-        data-cylindoui-expandablecard-body=""
-        expanded={expanded}
-        noPadding={noPadding}
-        {...{
-          ...BodyProps,
-          style: {
-            height: expanded && bodyHeight !== null ? bodyHeight : 0,
-            opacity: expanded ? 1 : 0,
-            visibility: expanded ? 'visible' : 'hidden',
-            ...(BodyProps.style ?? {}),
-          },
-        }}
+      <CollapsibleBox
+        data-badgerui-expandablecard-body=""
+        collapsed={!expanded}
+        {...BodyProps}
       >
-        <div
-          data-cylindoui-expandablecard-innerbody=""
-          ref={innerBodyRef}
-          {...InnerBodyProps}
-        >
-          {children}
-        </div>
-      </Body>
+        {children}
+      </CollapsibleBox>
     </Wrapper>
   )
 }
 
-type WrapperProps = {
-  expanded: boolean
-  noPadding: boolean
-}
-
-const Wrapper = styled(Card)<WrapperProps>`
-  ${({ expanded, noPadding, theme }) =>
-    !isEmpty(theme) &&
-    css`
-      padding-bottom: ${expanded ? (noPadding ? 0 : theme.metrics.spacing) : 0};
-    `}
-`
+const Wrapper = styled(Paper)``
 
 const Header = styled.div`
   display: flex;
@@ -216,7 +159,7 @@ const ControlButton = styled.button<ControlButtonProps>`
       &:active {
         background-color: ${theme.color.primary.dimmed};
 
-        [data-cylindoui-icon-svg] {
+        [data-badgerui-icon-svg] {
           fill: ${theme.color.primary.normal};
         }
       }
@@ -234,7 +177,7 @@ const StatusIcon = styled(Icon)<StatusIconProps>`
   ${({ expanded, theme }) =>
     !isEmpty(theme) &&
     css`
-      [data-cylindoui-icon-svg] {
+      [data-badgerui-icon-svg] {
         fill: ${expanded ? theme.color.primary.normal : theme.color.grey.darker};
       }
     `}
@@ -275,29 +218,4 @@ const UtilityArea = styled.div`
   display: flex;
   align-items: center;
   justify-self: flex-end;
-`
-
-type BodyProps = {
-  expanded: boolean
-  noPadding: boolean
-}
-
-const Body = styled.div<BodyProps>`
-  transition: height 300ms ease-in-out, opacity 175ms ease-in-out,
-    margin-top 300ms ease-in-out, visibility 175ms ease-in-out;
-  will-change: height, opacity, margin-top, visibility;
-  overflow: hidden;
-
-  ${({ expanded, noPadding, theme }) =>
-    !isEmpty(theme) &&
-    css`
-      margin-top: ${noPadding ? 0 : expanded ? `${theme.metrics.gutter}px` : 0};
-      padding: ${noPadding ? 0 : `0 ${theme.metrics.spacing}px`};
-
-      ${expanded
-        ? css`
-            height: auto;
-          `
-        : null}
-    `}
 `

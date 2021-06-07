@@ -50,7 +50,7 @@ export const Checkbox = ({
       aria-checked={checked}
       aria-disabled={disabled}
       aria-labelledby={label !== undefined ? labelId : ''}
-      data-cylindoui-checkbox=""
+      data-badgerui-checkbox=""
       busy={busy}
       disabled={disabled}
       tabIndex={0}
@@ -77,21 +77,19 @@ export const Checkbox = ({
         }
       }}
     >
-      <Circle data-cylindoui-checkbox-circle="" {...CircleProps}>
-        <Dot data-cylindoui-checkbox-dot="" {...DotProps} />
+      <Circle data-badgerui-checkbox-circle="" {...CircleProps}>
+        <Dot data-badgerui-checkbox-dot="" {...DotProps} />
         <Icon
-          data-cylindoui-checkbox-icon=""
+          data-badgerui-checkbox-icon=""
           color="white"
           icon="checkmark"
           width={18}
           {...IconProps}
         />
-        {busy && (
-          <Spinner data-cylindoui-checkbox-spinner="" size={7} {...SpinnerProps} />
-        )}
+        {busy && <Spinner data-badgerui-checkbox-spinner="" size={7} {...SpinnerProps} />}
       </Circle>
       {label !== undefined && (
-        <Label data-cylindoui-checkbox-label="" id={labelId} {...LabelProps}>
+        <Label data-badgerui-checkbox-label="" id={labelId} {...LabelProps}>
           {label}
         </Label>
       )}
@@ -132,51 +130,51 @@ const Wrapper = styled.div<WrapperProps>`
       ${disabled &&
       css`
         &:hover {
-          [data-cylindoui-checkbox-circle] {
+          [data-badgerui-checkbox-circle] {
             border-color: ${color};
           }
 
-          [data-cylindoui-checkbox-label] {
+          [data-badgerui-checkbox-label] {
             color: ${color};
           }
         }
       `}
 
       &:focus {
-        [data-cylindoui-checkbox-circle] {
+        [data-badgerui-checkbox-circle] {
           border-color: ${color};
         }
 
-        [data-cylindoui-checkbox-label] {
+        [data-badgerui-checkbox-label] {
           color: ${color};
           font-weight: 700;
         }
       }
 
       &:active {
-        [data-cylindoui-checkbox-circle] {
+        [data-badgerui-checkbox-circle] {
           border-color: ${color};
         }
 
-        [data-cylindoui-checkbox-label] {
+        [data-badgerui-checkbox-label] {
           color: ${color};
         }
       }
 
-      [data-cylindoui-checkbox-label] {
+      [data-badgerui-checkbox-label] {
         color: ${theme.typography.textColor};
       }
 
-      [data-cylindoui-checkbox-circle] {
+      [data-badgerui-checkbox-circle] {
         border-color: ${checked ? color : theme.color.border.normal};
         will-change: border-color;
 
-        [data-cylindoui-checkbox-dot] {
+        [data-badgerui-checkbox-dot] {
           transform: ${checked ? 'scale(1)' : 'scale(0)'};
           background-color: ${color};
         }
 
-        [data-cylindoui-checkbox-icon] {
+        [data-badgerui-checkbox-icon] {
           transform: ${checked ? 'scale(1)' : 'scale(0)'};
         }
       }
